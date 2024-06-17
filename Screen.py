@@ -31,8 +31,7 @@ class Screen:
                             elem.on_click(event)
 
             for elem in self.elements:
-                pg.draw.rect(elem.surface, 0, elem.rect)
-                elem.surface.blit(elem.rendered_text, elem.rendered_text.get_rect(center=(elem.surface.get_width()/2, elem.surface.get_height()/2)))
+                elem.draw()
                 self.screen.blit(elem.surface, (elem.rect.x, elem.rect.y))
                
             pg.display.flip()

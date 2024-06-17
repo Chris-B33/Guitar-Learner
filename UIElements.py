@@ -9,6 +9,10 @@ class Label:
         self.rect = pg.Rect(_x, _y, _w, _h)
         self.set_text(_text)
 
+    def draw(self) -> None:
+        pg.draw.rect(self.surface, 0, self.rect)
+        self.surface.blit(self.rendered_text, self.rendered_text.get_rect(center=(self.surface.get_width()/2, self.surface.get_height()/2)))
+
     def get_text(self) -> str:
         return self.text
 
@@ -21,10 +25,13 @@ class Image(Label):
         super().__init__(_x, _y, _w, _h)
         self.set_image(_image_name)
     
+    def draw(self):
+        super().draw()
+        self.surface.blit(self.image, (0, 0))
+
     def set_image(self, new_image_name):
         self.image_name = new_image_name
         self.image = pg.image.load("imgs/" + self.image_name + ".png").convert()
-        self.surface.blit(self.image)
 
 class Button(Label):
     def __init__(self, _x, _y, _w, _h, _text, _callback) -> None:
