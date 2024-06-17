@@ -35,7 +35,8 @@ class GuitarLearner:
 
                 if event.type == pg.MOUSEBUTTONDOWN and event.button == 1:
                     for elem in self.elements:
-                        elem.on_click(event)
+                        if elem.rect.collidepoint(event.pos):
+                            elem.on_click(event)
 
             for elem in self.elements:
                 pg.draw.rect(elem.surface, 0, elem.rect)

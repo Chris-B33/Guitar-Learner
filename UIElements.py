@@ -9,7 +9,7 @@ class Label:
         self.rect = pg.Rect(_x, _y, _w, _h)
         self.text = FONT.render(_text, False, (255, 255, 255))
     
-    def on_click(self) -> None:
+    def on_click(self, event) -> None:
         pass
 
 class Button(Label):
@@ -18,5 +18,4 @@ class Button(Label):
         self.callback = _callback
     
     def on_click(self, event) -> None:
-        if self.rect.collidepoint(event.pos):
-            self.callback()
+        self.callback()
