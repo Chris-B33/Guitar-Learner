@@ -8,7 +8,7 @@ import time
 class ChordGame(Screen):
     METRONOME_TIMING = 1
     IMAGE_CHANGE_PERIOD = 2
-    CHORDS = ["Am", "A", "C", "D", "Dm", "Em", "E", "G"]
+    CHORDS = ["A", "Am", "C", "D", "E", "Em", "G"]
     current_chord = "C"
 
     def __init__(self) -> None:
