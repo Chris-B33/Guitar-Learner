@@ -12,7 +12,7 @@ class Screen:
         self.running = True
         self.bg_color = color
 
-    def end(self):
+    def end(self) -> None:
         self.running = False
 
     def start(self) -> None:

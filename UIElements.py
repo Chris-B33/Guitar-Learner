@@ -25,11 +25,11 @@ class Image(Label):
         super().__init__(_x, _y, _w, _h)
         self.set_image(_image_name)
     
-    def draw(self):
+    def draw(self) -> None:
         super().draw()
         self.surface.blit(self.image, (0, 0))
 
-    def set_image(self, new_image_name):
+    def set_image(self, new_image_name) -> None:
         self.image_name = new_image_name
         self.image = pg.image.load("imgs/" + self.image_name + ".png").convert()
 

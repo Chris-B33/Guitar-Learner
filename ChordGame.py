@@ -19,11 +19,11 @@ class ChordGame(Screen):
         ]
         self.metronome = pg.mixer.Sound("metronome.wav")
 
-    def start(self):
+    def start(self) -> None:
         Thread(target=self.play_game).start()
         super().start()
 
-    def play_game(self):
+    def play_game(self) -> None:
         time_counter = 0
         while self.running:
             time.sleep(self.METRONOME_TIMING)
@@ -34,8 +34,8 @@ class ChordGame(Screen):
             if time_counter > self.IMAGE_CHANGE_PERIOD:
                 time_counter = 0
                 self.change_image(previous=self.current_chord)
-    
-    def change_image(self, previous):
+     
+    def change_image(self, previous) -> None:
         new_chord = self.CHORDS[random.randint(0, len(self.CHORDS) - 1)]
 
         while new_chord == previous: 
