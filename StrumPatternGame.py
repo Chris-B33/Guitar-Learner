@@ -14,7 +14,7 @@ class StrumPatternGame(Screen):
     def __init__(self) -> None:
         super().__init__("Chord Game", (0, 15, 0))
         self.elements = [
-            Image(self.WINDOW_SIZE / 4, self.WINDOW_SIZE / 5, self.WINDOW_SIZE / 2, self.WINDOW_SIZE / 2, self.current_chord),
+            Image(self.WINDOW_SIZE / 4, self.WINDOW_SIZE / 5, self.WINDOW_SIZE / 2, self.WINDOW_SIZE / 2, f"P{self.current_pattern}"),
             Button(self.WINDOW_SIZE / 4, self.WINDOW_SIZE / 8 * 5.5, self.WINDOW_SIZE / 2, self.WINDOW_SIZE / 8, "Back", self.end)
         ]
         self.metronome = pg.mixer.Sound("metronome.wav")
@@ -36,9 +36,9 @@ class StrumPatternGame(Screen):
                 self.change_image(previous=self.current_pattern)
      
     def change_image(self, previous) -> None:
-        new_pattern_num = random.randint(0, len(self.PATTERNS) - 1)
+        new_pattern_num = random.randint(0, self.PATTERNS_COUNT - 1)
 
         while new_pattern_num == previous: 
-            new_pattern_num = random.randint(0, len(self.PATTERNS) - 1)
+            new_pattern_num = random.randint(0, self.PATTERNS_COUNT - 1)
 
         self.elements[0].set_image(f"P{new_pattern_num}")
