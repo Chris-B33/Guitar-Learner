@@ -1,22 +1,23 @@
-import pygame as pg
 from UIElements import Button
+import pygame as pg
 
 class Screen:
     WINDOW_SIZE: int = 600
 
-    def __init__(self, title) -> None:
+    def __init__(self, title, color: tuple) -> None:
         pg.init()
         self.screen = pg.display.set_mode([self.WINDOW_SIZE, self.WINDOW_SIZE])
         pg.display.set_caption(title)
         self.elements = []
         self.running = True
+        self.bg_color = color
 
     def end(self):
         self.running = False
 
     def start(self) -> None:
         while self.running:
-            self.screen.fill((155, 255, 155))
+            self.screen.fill(self.bg_color)
 
             for event in pg.event.get():
                 if event.type == pg.QUIT:

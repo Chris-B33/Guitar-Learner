@@ -1,6 +1,6 @@
-import pygame as pg
 from Screen import Screen
 from UIElements import Button, Image
+import pygame as pg
 from threading import Thread
 import random
 import time
@@ -12,7 +12,7 @@ class ChordGame(Screen):
     current_chord = "C"
 
     def __init__(self) -> None:
-        super().__init__("Chord Game")
+        super().__init__("Chord Game", (240, 255, 240))
         self.elements = [
             Image(self.WINDOW_SIZE / 4, self.WINDOW_SIZE / 5, self.WINDOW_SIZE / 2, self.WINDOW_SIZE / 2, self.current_chord),
             Button(self.WINDOW_SIZE / 3, self.WINDOW_SIZE / 4 * 3, self.WINDOW_SIZE / 3, self.WINDOW_SIZE / 8, "Back", self.end)

@@ -1,14 +1,14 @@
-import pygame as pg
 from ChordGame import ChordGame
 from StrumPatternGame import StrumPatternGame
 from UIElements import Button, Label
 from Screen import Screen
+import pygame as pg
 
 class GuitarLearner(Screen):
     WINDOW_SIZE: int = 600
 
     def __init__(self) -> None:
-        super().__init__("Guitar Learner")
+        super().__init__("Guitar Learner", (155, 255, 155))
         self.elements = [
             Label(self.WINDOW_SIZE / 10 * 1.5, self.WINDOW_SIZE / 4, self.WINDOW_SIZE / 10 * 7, self.WINDOW_SIZE / 16 * 2.5, "Guitar Learner"),
             Button(self.WINDOW_SIZE / 4, self.WINDOW_SIZE / 2, self.WINDOW_SIZE / 2, self.WINDOW_SIZE / 8, "Chord Game", self.start_chord_game),
